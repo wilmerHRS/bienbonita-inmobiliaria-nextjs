@@ -70,7 +70,7 @@ export function ContactForm() {
       <div className="md:grid grid-cols-2">
         {/* Form Section */}
         <div className="w-full py-10 px-12">
-          <h2 className="text-3xl font-bold text-red-900 mb-6">
+          <h2 className="text-3xl font-bold text-red-600 mb-6">
             Completa tus datos y da el siguiente paso hacia tu nuevo hogar
           </h2>
 
