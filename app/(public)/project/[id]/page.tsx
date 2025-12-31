@@ -30,21 +30,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         className="w-full"
       />
       <div className="max-w-7xl mx-auto px-4 mt-16 mb-6">
-        <div className="grid grid-cols-9 gap-1 items-start">
+        <div className="md:grid md:grid-cols-9 gap-1 items-start">
           <div className="col-span-5">
             {/* Header */}
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4 sm:gap-8 md:gap-4 lg:gap-8">
               <Image
                 src={project.logo_url ?? ''}
                 alt=""
                 width={350}
                 height={150}
-                className="h-[150px] w-[350px] object-contain"
+                className="h-[90px] w-[200px] sm:h-[150px] sm:w-[350px] md:h-[100px] md:w-[280px] lg:h-[150px] lg:w-[350px] object-contain"
               />
-              <div className="bg-red-500 text-white py-4 px-6 rounded-l-2xl w-full">
+              <div className="bg-red-500 text-white py-4 px-4 sm:px-6 rounded-l-2xl w-full">
                 <span>Cuotas desde</span>
                 <br />
-                <span className="font-bold text-5xl">
+                <span className="font-bold text-3xl sm:text-4xl lg:text-5xl">
                   S/.{project.average_price}
                 </span>
               </div>
@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-[500px] rounded-4xl"
+                  className="w-full h-[330px] sm:h-[400px] md:h-[500px] rounded-4xl"
                 ></iframe>
               </div>
             </div>
@@ -108,8 +108,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               cum. Laboriosam, autem dolores.
             </p>
           </div> */}
-          <div className="pl-8 sticky top-56 z-10 col-span-4">
-            <div className="rounded-4xl shadow-xl overflow-hidden border-red-200 border-2 -mt-30">
+          <div className="md:pl-8 md:sticky md:top-56 z-10 col-span-4 mt-12 md:mt-0">
+            <div className="rounded-4xl shadow-xl overflow-hidden border-red-200 border-2 md:-mt-30">
               <ContactForm projectId={project.id} projectTitle={project.name} />
             </div>
           </div>

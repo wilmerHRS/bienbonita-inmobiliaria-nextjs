@@ -20,7 +20,7 @@ export default async function Home() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Proyectos */}
         <div className="py-8">
-          <h2 className="text-5xl text-red-600 font-bold m-6 mb-12 text-center">
+          <h2 className="text-4xl sm:text-5xl text-red-600 font-bold m-6 mb-12 text-center">
             Proyectos Novedosos
           </h2>
           <div className="flex flex-wrap justify-center md:gap-20 gap-10">

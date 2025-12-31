@@ -67,7 +67,7 @@ export function ContactForm({ projectId, projectTitle }: ContactFormProps) {
   }
 
   return (
-    <div className="py-10 px-12 bg-red-50">
+    <div className="py-6 px-6 sm:py-10 sm:px-12 md:py-6 md:px-6 bg-red-50">
       <h2 className="text-3xl font-bold text-red-600 mb-6">
         ¡Quiero conocer más de {projectTitle}!
       </h2>

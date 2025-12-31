@@ -43,7 +43,7 @@ export function CarouselImages() {
                   alt={slideImage.caption}
                   width={800}
                   height={600}
-                  className="object-cover w-full h-[400px] rounded-4xl"
+                  className="object-cover w-full h-[300px] sm:h-[400px] md:h-[400px] rounded-4xl"
                 />
               </CardContent>
             </Card>

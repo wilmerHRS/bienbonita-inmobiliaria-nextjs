@@ -80,8 +80,8 @@ export function ContactForm({ projects }: ContactFormProps) {
     <div className="bg-red-50 rounded-4xl shadow-xl overflow-hidden mx-auto my-12">
       <div className="md:grid grid-cols-2">
         {/* Form Section */}
-        <div className="w-full py-10 px-12">
-          <h2 className="text-3xl font-bold text-red-600 mb-6">
+        <div className="w-full py-6 sm:py-10 px-6 sm:px-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-red-600 mb-6">
             Completa tus datos y da el siguiente paso hacia tu nuevo hogar
           </h2>
 
