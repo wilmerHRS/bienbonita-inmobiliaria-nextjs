@@ -1,9 +1,10 @@
 export interface YoutubeVideoProps {
   videoId: string;
   sizePx: string;
+  rounded?: boolean;
 }
 
-const YouTubeVideo = ({ videoId, sizePx }: YoutubeVideoProps) => {
+const YouTubeVideo = ({ videoId, sizePx, rounded }: YoutubeVideoProps) => {
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&rel=0&modestbranding=1&showinfo=0`;
 
   const iframeStyles: React.CSSProperties = {
@@ -20,7 +21,9 @@ const YouTubeVideo = ({ videoId, sizePx }: YoutubeVideoProps) => {
 
   return (
     <div
-      className="absolute inset-0 overflow-hidden z-0"
+      className={`absolute inset-0 overflow-hidden z-0 ${
+        rounded ? 'rounded-4xl' : ''
+      }`}
       style={{ height: sizePx }}
     >
       <iframe

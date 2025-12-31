@@ -3,15 +3,21 @@ import YouTubeVideo from './YoutubeVideo';
 export interface YoutubeEmbedProps {
   videoId: string;
   sizePx?: string;
+  rounded?: boolean;
   children?: React.ReactNode;
 }
 
-const YouTubeEmbed = ({ videoId, sizePx, children }: YoutubeEmbedProps) => {
+const YouTubeEmbed = ({
+  videoId,
+  sizePx,
+  rounded,
+  children,
+}: YoutubeEmbedProps) => {
   const size = sizePx || '550px';
 
   return (
     <div className="relative" style={{ height: size }}>
-      <YouTubeVideo videoId={videoId} sizePx={size} />
+      <YouTubeVideo videoId={videoId} sizePx={size} rounded={rounded} />
       <div
         className="relative z-10 text-white flex items-center"
         style={{ height: size }}

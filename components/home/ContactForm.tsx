@@ -23,6 +23,9 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import Image from 'next/image';
+import { IProjectResponse } from '@/data/interfaces/project.interface';
+import { createClientAction } from '@/data/actions/create-client.action';
+import { IClient } from '@/data/interfaces/client.interface';
 
 const formSchema = z.object({
   project: z.string().min(1, 'Por favor selecciona un proyecto'),
@@ -39,7 +42,11 @@ const formSchema = z.object({
   }),
 });
 
-export function ContactForm() {
+interface ContactFormProps {
+  projects: IProjectResponse[];
+}
+
+export function ContactForm({ projects }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -54,15 +61,19 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    console.log(values);
-    // Here you would typically send the data to your API
-    setTimeout(() => {
-      setIsSubmitting(false);
-      // Reset form after submission
-      form.reset();
-    }, 2000);
+    const request: IClient = {
+      project_id: values.project,
+      fullname: values.fullName,
+      document: values.dni,
+      phone: values.phone,
+    };
+
+    const proccess = await createClientAction(request);
+
+    setIsSubmitting(false);
+    if (proccess) form.reset();
   }
 
   return (
@@ -93,15 +104,11 @@ export function ContactForm() {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="casa-modelo-a">
-                          Casa Modelo A
-                        </SelectItem>
-                        <SelectItem value="casa-modelo-b">
-                          Casa Modelo B
-                        </SelectItem>
-                        <SelectItem value="casa-modelo-c">
-                          Casa Modelo C
-                        </SelectItem>
+                        {projects.map((project) => (
+                          <SelectItem key={project.id} value={project.id}>
+                            {project.name}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />
