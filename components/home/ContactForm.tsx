@@ -26,6 +26,7 @@ import Image from 'next/image';
 import { IProjectResponse } from '@/data/interfaces/project.interface';
 import { createClientAction } from '@/data/actions/create-client.action';
 import { IClient } from '@/data/interfaces/client.interface';
+import { id } from 'zod/v4/locales';
 
 const formSchema = z.object({
   project: z.string().min(1, 'Por favor selecciona un proyecto'),
@@ -77,7 +78,7 @@ export function ContactForm({ projects }: ContactFormProps) {
   }
 
   return (
-    <div className="bg-red-50 rounded-4xl shadow-xl overflow-hidden mx-auto my-12">
+    <div id='form-project' className="bg-red-50 rounded-4xl shadow-xl overflow-hidden mx-auto my-12">
       <div className="md:grid grid-cols-2">
         {/* Form Section */}
         <div className="w-full py-6 sm:py-10 px-6 sm:px-12">

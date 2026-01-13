@@ -38,8 +38,14 @@ export function Header() {
           >
             Nosotros
           </Link>
+          <Link
+            href="/references"
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
+            Referencias
+          </Link>
           <Button className="h-12 w-40 rounded-full" asChild>
-            <Link href="/cotizar">Cotiza Aquí</Link>
+            <Link href="#form-project">Cotiza Aquí</Link>
           </Button>
         </nav>
 
@@ -73,7 +79,7 @@ export function Header() {
             </Link>
             <div className="p-4">
               <Button asChild className="w-full">
-                <Link href="/cotizar">Cotiza Aquí</Link>
+                <Link href="#form-project">Cotiza Aquí</Link>
               </Button>
             </div>
           </div>

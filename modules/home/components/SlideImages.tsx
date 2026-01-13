@@ -1,24 +1,13 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import { IImage } from "@/modules/projects/constants/images.constant"
 
-// Lista de imágenes a rotar (usando tus URLs)
-const slideImages = [
-  {
-    url: 'https://res.cloudinary.com/di65tbibv/image/upload/v1765151701/bien-bonita/projects/04a427f2-dfd5-4beb-8f44-074aafbcbe93.png',
-    caption: 'Imagen 1',
-  },
-  {
-    url: 'https://res.cloudinary.com/di65tbibv/image/upload/v1765151687/bien-bonita/projects/54071261-0f5e-4c31-a383-eaa1f502cfa1.png',
-    caption: 'Imagen 2',
-  },
-  {
-    url: 'https://res.cloudinary.com/di65tbibv/image/upload/v1765151661/bien-bonita/projects/5d39b696-bd90-4992-a24c-12b835361543.png',
-    caption: 'Imagen 3',
-  },
-];
+export interface SlideImagesProps {
+  images: IImage[]
+}
 
-export default function SlideImages() {
+export default function SlideImages({ images }: SlideImagesProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -26,7 +15,7 @@ export default function SlideImages() {
 
   // 1. Función para avanzar la imagen (en bucle)
   const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slideImages.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   // 1. CLAVE: Manejador para iniciar la rotación (onMouseEnter)
@@ -73,7 +62,7 @@ export default function SlideImages() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {slideImages.map((slideImage, index) => (
+      {images.map((slideImage, index) => (
         <Image
           key={index}
           src={slideImage.url}

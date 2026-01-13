@@ -26,18 +26,11 @@ export function DropdownMenuDemo({ isMobile = false }: DropdownMenuDemoProps) {
     return (
       <>
         <Link
-          href="/proyectos"
+          href="/proyectos/38121371-1fcb-48fe-86b4-aaff2b951335"
           className="block p-4 text-sm font-medium hover:bg-accent"
-        >
-          Proyectos (Ver Todos)
+        > Real Felipe
         </Link>
         {/* Items del list en móvil */}
-        <Link
-          href="/proyectos/web"
-          className="block pl-8 py-2 text-sm text-muted-foreground hover:bg-accent"
-        >
-          Proyectos Web
-        </Link>
         <Link
           href="/proyectos/movil"
           className="block pl-8 py-2 text-sm text-muted-foreground hover:bg-accent"
@@ -58,14 +51,19 @@ export function DropdownMenuDemo({ isMobile = false }: DropdownMenuDemoProps) {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuItem asChild>
-          <Link href="/proyectos">Ver Todos</Link>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <Link href="/proyectos/web">Proyectos Web</Link>
+          <Link href="/project/aca48e5b-b585-4f88-84f5-498abd6bf567">Real Felipe</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/proyectos/movil">Proyectos Móvil</Link>
+          <Link href="/project/38121371-1fcb-48fe-86b4-aaff2b951335">San Francisco</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/project/c382db86-b273-4c8a-bf24-34289cfd801a">Santa Lucia</Link>
+        </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+          <Link href="/project/1031ef3e-94e2-4e1a-81bb-ee9e16795f9d">Villa Bonita</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/project/656703ae-32c4-4347-b494-87622a076b89">Villa Maria</Link>
         </DropdownMenuItem>
         {/* Más items aquí */}
       </DropdownMenuContent>

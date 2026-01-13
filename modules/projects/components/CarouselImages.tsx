@@ -12,29 +12,19 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
+import { IImage } from '../constants/images.constant';
 
-const slideImages = [
-  {
-    url: 'https://res.cloudinary.com/di65tbibv/image/upload/v1765151701/bien-bonita/projects/04a427f2-dfd5-4beb-8f44-074aafbcbe93.png',
-    caption: 'Imagen 1',
-  },
-  {
-    url: 'https://res.cloudinary.com/di65tbibv/image/upload/v1765151687/bien-bonita/projects/54071261-0f5e-4c31-a383-eaa1f502cfa1.png',
-    caption: 'Imagen 2',
-  },
-  {
-    url: 'https://res.cloudinary.com/di65tbibv/image/upload/v1765151661/bien-bonita/projects/5d39b696-bd90-4992-a24c-12b835361543.png',
-    caption: 'Imagen 3',
-  },
-];
+export interface CarouselImagesProps {
+  images: IImage[]
+}
 
-export function CarouselImages() {
+export function CarouselImages({ images }: CarouselImagesProps) {
   const plugin = React.useRef(Autoplay({ delay: 4000, active: true }));
 
   return (
     <Carousel plugins={[plugin.current]} className="w-full">
       <CarouselContent>
-        {slideImages.map((slideImage, index) => (
+        {images.map((slideImage, index) => (
           <CarouselItem key={index}>
             <Card className="border-0 p-0">
               <CardContent className="p-0">

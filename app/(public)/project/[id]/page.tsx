@@ -2,10 +2,31 @@ import { getAllProjectByIdUseCase } from '@/data/use-cases/project/get-project-b
 import { Trust } from '@/modules/home/components/Trust';
 import { CarouselImages } from '@/modules/projects/components/CarouselImages';
 import { ContactForm } from '@/modules/projects/components/ContactForm';
+import { images } from '@/modules/projects/constants/images.constant';
 import YoutubeEmbed from '@/shared/components/YoutubeEmbed';
-import { ScrollText } from 'lucide-react';
+import { CarFront, ScrollText, ShowerHead, Shrub, StretchHorizontal, StretchVertical } from 'lucide-react';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
+
+const services = [
+  {
+    id: "propiedad",
+    icon: <ScrollText className="h-18 w-18" />,
+    title: "Título de Propiedad"
+  }, {
+    id: "agua-desague",
+    icon: <ShowerHead className="h-18 w-18" />,
+    title: "Agua y Desague"
+  },{
+    id:"parques",
+    icon: <Shrub className="h-18 w-18" />,
+    title: "Parques y Areas"
+  },{
+    id:"pistas y veredas",
+    icon: <CarFront   className="h-18 w-18" />,
+    title: "Pistas y + Veredas",
+  }
+]
 
 interface ProjectPageProps {
   params: Promise<{ id: string }>;
@@ -16,9 +37,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const project = await getAllProjectByIdUseCase(id);
 
-  if (!project) {
-    redirect('/');
-  }
+  if (!project) redirect('/');
+
+  const img = images[project.id];
 
   return (
     <div>
@@ -64,14 +85,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 Disfruta con todo equipado
               </h5>
               <div className="flex flex-wrap items-center gap-6 mt-5">
-                {[1, 2, 3, 4].map((item) => (
+                {/* SERVICIOS */}
+                {services.map((service) => (
                   <div
-                    key={item}
+                    key={service.id}
                     className="w-34 h-38 bg-red-50 text-red-800 rounded-xl p-2 flex flex-col items-center"
                   >
-                    <ScrollText className="h-18 w-18" />
+                    {service.icon}
                     <span className="block text-center my-auto font-bold">
-                      Título de Propiedad
+                      {service.title}
                     </span>
                   </div>
                 ))}
@@ -82,7 +104,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <h2 className="text-3xl font-bold text-red-600 mb-6">
                 Espacios diseñados para ti
               </h2>
-              <CarouselImages />
+              <CarouselImages images={img} />
             </div>
             {/* Map */}
             <div className="mt-12">
