@@ -10,7 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2, Star } from 'lucide-react';
 import { getAllClientAction } from '@/data/actions/get-all-client.action';
 import { IClientResponse } from '@/data/interfaces/client.interface';
 
@@ -61,6 +61,7 @@ export function ClientTable() {
               <TableHead className="text-red-600">Teléfono</TableHead>
               <TableHead className="text-red-600">Proyecto</TableHead>
               <TableHead className="text-red-600">Fecha Reg.</TableHead>
+              <TableHead className="text-red-600">Puntuación</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -89,6 +90,13 @@ export function ClientTable() {
                     {client.created_at
                       ? new Date(client.created_at).toLocaleDateString()
                       : '-'}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
                   </TableCell>
                 </TableRow>
               ))

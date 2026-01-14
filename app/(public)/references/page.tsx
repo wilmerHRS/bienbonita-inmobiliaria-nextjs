@@ -2,15 +2,18 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Star } from "lucide-react";
 
 const testimonios = [
     // Agregar más de 3 testimonios para que el carrusel tenga algo que mover
-    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1764369594/chilca_tjubxz.png", frase: '"Ahora sí siento que estoy construyendo mi futuro."', autor: "Renzo Ramírez – Real Felipe" },
-    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1764368783/ejemplo2_thh5hh.png", frase: '"Por fin tengo un lugar mío, fue la mejor decisión que tomé."', autor: "Marisol – Real Felipe" },
-    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1765578065/foto3_mwibph.png", frase: '"Con Bienbonita encontré el terreno perfecto y compré con total confianza."', autor: "Frank – Santa Lucía" },
+    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1768338697/bien-bonita/clients/an-cl3.jpg", frase: '"Todo legal, transparente y en el tiempo prometido. ¡Excelente!"', autor: "Mery V. – Real Felipe" },
+    
+    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1768338697/bien-bonita/clients/ke-cl3.jpg", frase: '"Súper transparentes desde el primer día. Muy felices con nuestra compra."', autor: "Familia Gamboa – Villa Marcelo" },
+    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1768338697/bien-bonita/clients/an-cl2.jpg", frase: '"Un sueño hecho realidad. Gracias por la paciencia con mis dudas."', autor: "Teresa M. – Real Felipe" },
     // AÑADE ESTOS EJEMPLOS PARA PROBAR LA NAVEGACIÓN
-    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1764369594/chilca_tjubxz.png", frase: '"Excelente servicio y atención personalizada."', autor: "Laura V. – Proyecto X" },
-    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1764368783/ejemplo2_thh5hh.png", frase: '"Recomiendo 100% Bienbonita por su seriedad."', autor: "Carlos M. – Proyecto Y" },
+    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1768338697/bien-bonita/clients/ke-cl2.jpg", frase: '"Atención de primera. Te acompañan en cada paso de la firma."', autor: "Nancy V. – Villa Marcelo" },
+    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1768338697/bien-bonita/clients/an-cl1.jpg", frase: '"Me dieron la seguridad que otras inmobiliarias no me daban. ¡Sigan así!."', autor: "Magaly G. – Real Felipe" },
+    { img: "https://res.cloudinary.com/di65tbibv/image/upload/v1768338697/bien-bonita/clients/ke-cl1.jpg", frase: '"Por fin tengo un lugar mío, fue la mejor decisión que tomé."', autor: "Fiorella  – Villa Marcelo" },
 ];
 
 export default function ReferenciasPage() {
@@ -91,10 +94,16 @@ export default function ReferenciasPage() {
                                     </div>
 
                                     {/* Contenedor del TEXTO/FRASE: Superposición */}
-                                    <div className="bg-white rounded-xl shadow-2xl px-6 py-5 mt-[-70px] max-w-sm w-[90%] flex flex-col items-center z-10 border-t-8 border-white">
-                                        <p className="text-xl font-bold text-red-700 text-center mb-2">{t.frase}</p>
-                                        <span className="text-sm text-gray-500 text-center">{t.autor}</span>
-                                    </div>
+                                        <div className="bg-white rounded-xl shadow-2xl px-6 py-5 mt-[-70px] max-w-sm w-[90%] flex flex-col items-center z-10 border-t-8 border-white">
+                                            {/* Estrellas de puntuación */}
+                                                <div className="flex items-center gap-1 mb-2">
+                                                    {[...Array(5)].map((_, i) => (
+                                                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                                                            ))}
+                                                            </div>
+                                                            <p className="text-xl font-bold text-red-700 text-center mb-2">{t.frase}</p>
+                                                    <span className="text-sm text-gray-500 text-center">{t.autor}</span>
+                                                    </div>
                                 </div>
                             </div>
                         ))}

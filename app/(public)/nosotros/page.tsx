@@ -50,7 +50,7 @@ export default function NosotrosPage() {
 						<div>
 							<h3 className="text-2xl md:text-3xl font-bold text-red-600 mb-4">¿Por qué estamos aquí?</h3>
 							<p className="text-black text-xl md:text-2xl font-semibold max-w-3xl mx-auto">
-								Desarrollamos nuestros negocios basados en un modelo de gestión empresarial comprometidos con el desarrollo sostenible y las relaciones de confianza con nuestros grupos de interés.
+								Construimos bonitos lugares para vivir; contribuyendo al crecimiento ordenado de las ciudades, por medio de nuestros servicios y proyectos inmobiliarios.
 							</p>
 						</div>
 					)}
@@ -58,18 +58,28 @@ export default function NosotrosPage() {
 						<div>
 							<h3 className="text-2xl md:text-3xl font-bold text-red-600 mb-4">¿A dónde queremos llegar?</h3>
 							<p className="text-black text-xl md:text-2xl font-semibold max-w-3xl mx-auto">
-								Ser reconocidos como líderes en el desarrollo de proyectos urbanos sostenibles, generando valor para nuestros clientes, colaboradores y la sociedad.
+								Ser la mejor elección en servicios y productos inmobiliarios de la Región, generando la mejor rentabiliDad a nuestros inversionistas con un equipo de alto nivel.
 							</p>
 						</div>
 					)}
 				</section>
-				<div className="fixed bottom-8 right-8 z-50">
-					<a href="https://wa.me/51973139617" target="_blank" rel="noopener noreferrer">
-						<div className="relative">
-							<img src="https://res.cloudinary.com/di65tbibv/image/upload/v1768279519/bien-bonita/project-logos/WhatsApp.svg_t7hquw.png	" alt="WhatsApp" className="w-16 h-16" />
-							<span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">1</span>
-						</div>
-					</a>
+				        <div className="fixed bottom-8 right-8 z-50">
+          <a href="https://wa.me/51973139617" target="_blank" rel="noopener noreferrer" className="group">
+			<div className="relative transition-transform duration-300 group-hover:scale-110">
+					{/* Anillo de animación */}
+					<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+					
+					<img 
+						src="https://res.cloudinary.com/di65tbibv/image/upload/v1768279519/bien-bonita/project-logos/WhatsApp.svg_t7hquw.png" 
+						alt="WhatsApp" 
+						className="relative w-16 h-16" 
+					/>
+					
+					<span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold animate-bounce">
+						1
+					</span>
+					</div>
+				</a>
 				</div>
 			</main>
 		</>
