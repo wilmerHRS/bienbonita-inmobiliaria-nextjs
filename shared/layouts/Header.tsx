@@ -27,7 +27,7 @@ export function Header() {
         <nav className="hidden md:flex items-center space-x-6 gap-6">
           <DropdownMenuDemo /> {/* Componente para 'Proyectos' */}
           <Link
-            href="/ofertas"
+            href="/oferts"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Ofertas

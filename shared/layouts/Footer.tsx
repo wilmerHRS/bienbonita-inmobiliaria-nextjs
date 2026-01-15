@@ -68,19 +68,19 @@ export const Footer = () => {
             <p className="text-sm font-medium">Síguenos en:</p>
             <div className="flex space-x-4">
               <Link
-                href="#"
+                href="https://www.facebook.com/inmobiliariabienbonita"
                 className="bg-white text-[#e61e25] p-1.5 rounded-full hover:bg-gray-200 transition-colors"
               >
                 <Facebook size={20} fill="currentColor" />
               </Link>
               <Link
-                href="#"
+                href="https://www.instagram.com/inmobiliariabienbonita/"
                 className="bg-white text-[#e61e25] p-1.5 rounded-full hover:bg-gray-200 transition-colors"
               >
                 <Instagram size={20} />
               </Link>
               <Link
-                href="#"
+                href="https://www.tiktok.com/@inmobiliariabienbonita"
                 className="bg-white text-[#e61e25] p-1.5 rounded-full hover:bg-gray-200 transition-colors"
               >
                 <Music2 size={20} />
