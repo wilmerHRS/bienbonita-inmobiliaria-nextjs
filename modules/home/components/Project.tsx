@@ -29,7 +29,7 @@ const Project = ({ project }: ProjectProps) => {
         <SlideImages images={img} />
         <div className="grid grid-cols-2">
           <div className="bg-red-500 flex gap-2 justify-center items-end text-white py-4 px-2 rounded-bl-xl">
-            <span>Cuotas desde</span>
+            <span>Lotes desde</span>
             <span className="font-bold text-3xl">
               S/.{project.average_price}
             </span>

@@ -12,8 +12,8 @@ export default async function Home() {
       {/* Video promocional */}
       <YoutubeEmbed videoId="eTkfDJk-hQU">
         <h4 className="text-4xl md:text-6xl font-bold mb-4 md:w-lg leading-20">
-          <span className="bg-red-500 px-2 rounded">CONSTRUIMOS</span> LUGARES BONITOS PARA{' '}
-          <span className="bg-red-500 px-2 rounded">VIVIR</span>
+          <span className="bg-red-500 px-2 rounded">EN CHICLAYO</span> construimos <span className="bg-red-500 px-2 rounded">bonitos</span> lugares para{' '}
+          <span className="bg-red-500 px-2 rounded"> vivir</span>
         </h4>
       </YoutubeEmbed>
       <div className="max-w-7xl mx-auto px-4">
