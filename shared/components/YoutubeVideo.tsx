@@ -5,7 +5,7 @@ export interface YoutubeVideoProps {
 }
 
 const YouTubeVideo = ({ videoId, sizePx, rounded }: YoutubeVideoProps) => {
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&rel=0&modestbranding=1&showinfo=0`;
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&rel=0&modestbranding=1&vq=hd1080&showinfo=0`;
 
   const iframeStyles: React.CSSProperties = {
     position: 'absolute',

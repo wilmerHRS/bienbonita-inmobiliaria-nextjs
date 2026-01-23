@@ -60,6 +60,7 @@ export type Database = {
           logo_url: string | null
           map_url: string | null
           name: string
+          square_meters: number | null
           status_id: number | null
           youtube_video_id: string | null
         }
@@ -73,6 +74,7 @@ export type Database = {
           logo_url?: string | null
           map_url?: string | null
           name: string
+          square_meters?: number | null
           status_id?: number | null
           youtube_video_id?: string | null
         }
@@ -86,6 +88,7 @@ export type Database = {
           logo_url?: string | null
           map_url?: string | null
           name?: string
+          square_meters?: number | null
           status_id?: number | null
           youtube_video_id?: string | null
         }

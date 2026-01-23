@@ -61,7 +61,6 @@ export function ClientTable() {
               <TableHead className="text-red-600">Teléfono</TableHead>
               <TableHead className="text-red-600">Proyecto</TableHead>
               <TableHead className="text-red-600">Fecha Reg.</TableHead>
-              <TableHead className="text-red-600">Puntuación</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -90,13 +89,6 @@ export function ClientTable() {
                     {client.created_at
                       ? new Date(client.created_at).toLocaleDateString()
                       : '-'}
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                      ))}
-                    </div>
                   </TableCell>
                 </TableRow>
               ))

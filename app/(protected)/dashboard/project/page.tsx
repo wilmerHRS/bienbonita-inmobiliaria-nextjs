@@ -1,23 +1,39 @@
 'use client';
 
 import { createProjectAction } from '@/data/actions/create-project.action';
+import { getAllProjectStatusesAction } from '@/data/actions/get-all-project-statuses.action';
 import { updateProjectAction } from '@/data/actions/update-project.action';
 import {
   IProjectCreate,
   IProjectResponse,
+  IProjectStatusResponse,
 } from '@/data/interfaces/project.interface';
 import { ProjectModal } from '@/modules/projects/components/ProjectModal';
 import { ProjectTable } from '@/modules/projects/components/ProjectTable';
 import { Plus } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function ProjectPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] =
     useState<IProjectResponse | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [projectStatuses, setProjectStatuses] = useState<IProjectStatusResponse[]>([]);
 
   const handleRefresh = () => setRefreshKey((prev) => prev + 1);
+
+  useEffect(() => {
+    const fetchProjectStatuses = async () => {
+      try {
+        const statuses = await getAllProjectStatusesAction();
+        setProjectStatuses(statuses);
+      } catch (error) {
+        console.error('Error fetching project statuses:', error);
+      }
+    };
+
+    fetchProjectStatuses();
+  }, []);
 
   const handleCreate = () => {
     setSelectedProject(null);
@@ -69,6 +85,7 @@ export default function ProjectPage() {
           onClose={handleCloseModal}
           initialData={selectedProject}
           onSubmit={handleSubmit}
+          projectStatuses={projectStatuses}
         />
       ) : null}
     </div>

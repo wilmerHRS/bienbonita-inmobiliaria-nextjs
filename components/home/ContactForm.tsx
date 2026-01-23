@@ -26,7 +26,6 @@ import Image from 'next/image';
 import { IProjectResponse } from '@/data/interfaces/project.interface';
 import { createClientAction } from '@/data/actions/create-client.action';
 import { IClient } from '@/data/interfaces/client.interface';
-import { id } from 'zod/v4/locales';
 
 const formSchema = z.object({
   project: z.string().min(1, 'Por favor selecciona un proyecto'),

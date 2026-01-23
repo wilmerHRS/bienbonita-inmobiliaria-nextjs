@@ -77,6 +77,7 @@ export function ProjectTable({ handleEdit, refreshKey }: ProjectTableProps) {
               <TableHead className="text-red-600">Descripción</TableHead>
               <TableHead className="text-red-600">Ubicación</TableHead>
               <TableHead className="text-red-600">Precio Promedio</TableHead>
+              <TableHead className="text-red-600">Metros Cuadrados</TableHead>
               <TableHead className="text-red-600">Estado</TableHead>
               <TableHead className="text-red-600">Logo</TableHead>
               <TableHead className="text-red-600">Portada</TableHead>
@@ -93,13 +94,13 @@ export function ProjectTable({ handleEdit, refreshKey }: ProjectTableProps) {
           <TableBody>
             {loading ? (
               <TableRow>
-                <TableCell colSpan={11} className="h-24 text-center">
+                <TableCell colSpan={12} className="h-24 text-center">
                   <Loader2 className="w-6 h-6 animate-spin mx-auto" />
                 </TableCell>
               </TableRow>
             ) : projects.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={11} className="h-24 text-center">
+                <TableCell colSpan={12} className="h-24 text-center">
                   No se encontraron proyectos.
                 </TableCell>
               </TableRow>
@@ -117,6 +118,9 @@ export function ProjectTable({ handleEdit, refreshKey }: ProjectTableProps) {
                   </TableCell>
                   <TableCell className="whitespace-nowrap">
                     S/. {project.average_price}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    {project.square_meters ? `${project.square_meters} m²` : '-'}
                   </TableCell>
                   <TableCell>{project.project_status?.name}</TableCell>
                   <TableCell className="max-w-[150px] truncate text-blue-500">

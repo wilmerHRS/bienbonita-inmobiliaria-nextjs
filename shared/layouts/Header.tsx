@@ -1,10 +1,13 @@
-import Link from 'next/link';
-import { MenuIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { DropdownMenuDemo } from '../components/DropdownMenu';
-import Image from 'next/image';
+import Link from "next/link";
+import { MenuIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DropdownMenuDemo } from "../components/DropdownMenu";
+import Image from "next/image";
+import { getAllProjectsForHomeUseCase } from "@/data/use-cases/project/get-all-projects-for-home.use-case";
 
-export function Header() {
+export async function Header() {
+  const projects = await getAllProjectsForHomeUseCase();
+
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur main-page-color text-white">
       <div className="max-w-7xl mx-auto flex h-18 items-center justify-between px-4">
@@ -14,7 +17,7 @@ export function Header() {
           {/* <span className="font-bold text-lg">Mi Logo</span> */}
           <Image
             src={
-              'https://res.cloudinary.com/di65tbibv/image/upload/t_Logo%20overlay/v1762550914/foto-perfil_a3ncr2.png'
+              "https://res.cloudinary.com/di65tbibv/image/upload/t_Logo%20overlay/v1762550914/foto-perfil_a3ncr2.png"
             }
             alt="Logo de la Empresa"
             width={120}
@@ -25,7 +28,7 @@ export function Header() {
         {/* Navegación para Desktop (Ocultar en Móvil) */}
         {/* La clase 'hidden md:flex' oculta en móvil y lo muestra como 'flex' en 'md' (768px) o superior. */}
         <nav className="hidden md:flex items-center space-x-6 gap-6">
-          <DropdownMenuDemo /> {/* Componente para 'Proyectos' */}
+          <DropdownMenuDemo projects={projects} />
           <Link
             href="/oferts"
             className="text-sm font-medium transition-colors hover:text-primary"
@@ -64,7 +67,7 @@ export function Header() {
           {/* Menú Móvil - Su visibilidad se controla con CSS puro */}
           <div id="mobile-menu" className="mobile-menu-content">
             {/* Contenido del menú móvil */}
-            <DropdownMenuDemo isMobile={true} />
+            <DropdownMenuDemo isMobile={true} projects={projects} />
             <Link
               href="/ofertas"
               className="block p-4 text-sm font-medium hover:bg-accent"

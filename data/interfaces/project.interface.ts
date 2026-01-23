@@ -3,6 +3,7 @@ export interface IProjectResponse {
   name: string;
   description: string | null;
   average_price: number;
+  square_meters: number;
   image_url: string | null;
   location: string;
   logo_url: string | null;
@@ -15,11 +16,18 @@ export interface IProjectResponse {
   };
 }
 
+export interface IProjectStatusResponse {
+  id: number;
+  name: string;
+  created_at: string;
+}
+
 export interface IProjectCreate {
   name: string;
   description?: string | null;
   location: string;
   average_price: number;
+  square_meters: number;
   status_id?: number | null;
   logo_url?: string | null;
   image_url?: string | null;

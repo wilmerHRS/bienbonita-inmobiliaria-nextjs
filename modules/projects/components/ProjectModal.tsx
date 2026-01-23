@@ -1,5 +1,6 @@
 'use client';
 
+import { IProjectStatusResponse } from '@/data/interfaces/project.interface';
 import { useForm, Resolver } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
@@ -32,13 +33,13 @@ import {
   projectSchema,
 } from '../validations/create-project.validation';
 import { IProjectResponse } from '@/data/interfaces/project.interface';
-import { ProjectStatus } from '../enums/project-status.enum';
 
 interface ProjectModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialData?: IProjectResponse | null;
   onSubmit: (values: ProjectFormValues) => void;
+  projectStatuses: IProjectStatusResponse[];
 }
 
 export function ProjectModal({
@@ -46,7 +47,9 @@ export function ProjectModal({
   onClose,
   initialData,
   onSubmit,
+  projectStatuses,
 }: ProjectModalProps) {
+
   const form = useForm<ProjectFormValues>({
     resolver: zodResolver(projectSchema) as Resolver<ProjectFormValues>,
     defaultValues: {
@@ -54,6 +57,7 @@ export function ProjectModal({
       description: initialData?.description || '',
       location: initialData?.location || '',
       average_price: initialData?.average_price ?? 0,
+      square_meters: initialData?.square_meters ?? 0,
       status_id: initialData?.status_id ?? 1,
       youtube_video_id: initialData?.youtube_video_id || '',
       image_url: initialData?.image_url || '',
@@ -201,6 +205,21 @@ export function ProjectModal({
                 )}
               />
 
+              {/* Metros Cuadrados */}
+              <FormField
+                control={form.control}
+                name="square_meters"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Metros Cuadrados (m²)</FormLabel>
+                    <FormControl>
+                      <Input type="number" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
               {/* Estado */}
               <FormField
                 control={form.control}
@@ -218,15 +237,11 @@ export function ProjectModal({
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value={ProjectStatus.ACTIVE.toString()}>
-                          Activo
-                        </SelectItem>
-                        <SelectItem value={ProjectStatus.INACTIVE.toString()}>
-                          Inactivo
-                        </SelectItem>
-                        <SelectItem value={ProjectStatus.PRE_SALE.toString()}>
-                          En Preventa
-                        </SelectItem>
+                        {projectStatuses.map((status) => (
+                          <SelectItem key={status.id} value={status.id.toString()}>
+                            {status.name}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />

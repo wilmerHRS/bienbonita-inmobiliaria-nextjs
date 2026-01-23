@@ -13,6 +13,10 @@ export const projectSchema = z.object({
     castToNumber,
     z.number('Debe ser un número').positive('El precio debe ser mayor a 0')
   ),
+  square_meters: z.preprocess(
+    castToNumber,
+    z.number('Debe ser un número').positive('Los metros cuadrados deben ser mayor a 0')
+  ),
   status_id: z.preprocess(castToNumber, z.number().int()),
   youtube_video_id: z.string().optional().or(z.literal('')),
   image_url: z.string().url('Debe ser una URL válida'),

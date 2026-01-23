@@ -31,7 +31,7 @@ const Project = ({ project }: ProjectProps) => {
           <div className="bg-red-500 flex gap-2 justify-center items-end text-white py-4 px-2 rounded-bl-xl">
             <span>Lotes desde</span>
             <span className="font-bold text-3xl">
-              S/.{project.average_price}
+              {project.square_meters} m²
             </span>
           </div>
           <div className="flex gap-2 justify-center items-center font-bold">
