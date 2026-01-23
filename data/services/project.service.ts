@@ -49,7 +49,7 @@ const getById = async (id: string) => {
     .from("project")
     .select(`*, project_status ( name )`)
     .eq("id", id)
-    .eq("status_id", ProjectStatus.ACTIVE)
+    .neq("status_id", ProjectStatus.INACTIVE)
     .single();
 
   if (error) {
